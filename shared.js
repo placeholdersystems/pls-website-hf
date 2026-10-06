@@ -1,14 +1,9 @@
 //footer
-function init() {
-  const year = document.getElementById("footer-year");
-  if (year) year.textContent = new Date().getFullYear();
+const year = document.getElementById("footer-year");
+if (year) {
+  year.textContent = new Date().getFullYear();
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init();
-}
 // topnavbra dropdown 1 at a time
 document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
   const btn = dropdown.querySelector('.nav-dropdown-button');
