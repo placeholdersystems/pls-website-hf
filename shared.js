@@ -40,6 +40,24 @@ toggle.addEventListener('click', (e) => {
   toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 
+/* Mark the current page as active from the URL (handles /page, /page/, /page.html, /index.html) */
+const normPath = p => (p || '/').replace(/\/index(\.html)?$/, '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+const currentPath = normPath(location.pathname);
+document.querySelectorAll('.nav-links .nav-link, .nav-links .nav-dropdown-button').forEach(el => el.classList.remove('active'));
+document.querySelectorAll('.nav-links > a.nav-link').forEach(a => {
+  if (normPath(new URL(a.getAttribute('href'), location.origin).pathname) === currentPath) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
+});
+document.querySelectorAll('.nav-dropdown').forEach(dd => {
+  const btn = dd.querySelector('.nav-dropdown-button');
+  const matches = (btn.dataset.match || '').split(/\s+/).filter(Boolean);
+  dd.querySelectorAll('.nav-dropdown-item').forEach(a => {
+    if (normPath(new URL(a.getAttribute('href'), location.origin).pathname) === currentPath) a.setAttribute('aria-current', 'page');
+  });
+  if (matches.includes(currentPath)) btn.classList.add('active');
+});
+document.querySelectorAll('.nav-mobile-menu a').forEach(a => {
+  if (normPath(new URL(a.getAttribute('href'), location.origin).pathname) === currentPath) a.classList.add('current');
+});
 
 /* Blend the gradient when the hovered/open link is directly next to the active one */
 const bars = [...document.querySelectorAll('.nav-links > .nav-link, .nav-links > .nav-dropdown > .nav-link')];
@@ -89,3 +107,4 @@ bars.forEach(b => {
 });
 document.querySelectorAll('.nav-dropdown').forEach(d => new MutationObserver(updateBlend).observe(d, { attributes: true, attributeFilter: ['class'] }));
 window.addEventListener('resize', updateBlend);
+updateBlend();
