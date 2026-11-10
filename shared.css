@@ -25,7 +25,7 @@
 .nav-links { height: 64px; margin-left: auto; }
 .nav-dropdown { height: 64px; }
 .nav-link { height: 64px; padding: 0 16px; }
-.nav-link::before { content: ""; position: absolute; top: -0.5px; left: -0.5; right: -0.5; height: 3px; background: var(--bar-bg, var(--brand-gradient)); background-size: var(--bar-size, 100% 100%); background-position: var(--bar-pos, 0 0); background-repeat: no-repeat; clip-path: var(--bar-hide, inset(0 100% 0 0)); transition: clip-path .25s ease; }
+.nav-link::before { content: ""; position: absolute; top: -0.5px; left: 0; right: 0; height: 3px; background: var(--bar-bg, var(--brand-gradient)); background-size: var(--bar-size, 100% 100%); background-position: var(--bar-pos, 0 0); background-repeat: no-repeat; clip-path: var(--bar-hide, inset(0 100% 0 0)); transition: clip-path .25s ease; }
 .nav-link:hover, .nav-dropdown.open > .nav-link { background: rgba(255,255,255,0.05); }
 .nav-link:hover::before, .nav-link.active::before, .nav-dropdown.open > .nav-link::before { clip-path: inset(0); }
 .nav-dropdown-menu { top: 100%; margin-top: 0.5px; width: 190px; }
