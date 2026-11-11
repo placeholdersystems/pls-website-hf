@@ -47,6 +47,9 @@
   .nav-mobile-menu a:hover, .nav-mobile-menu a.current { color: #fff; background: rgba(255,255,255,0.05); border-left-color: var(--pink); }
   .nav-mobile-menu a:hover svg, .nav-mobile-menu a.current svg { color: var(--pink); }
 }
+@media (min-width: 761px) {
+  .nav-mobile-menu, .nav-mobile-toggle { display: none !important; }
+}
 /*FOOTRER!!*/
 
 
