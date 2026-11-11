@@ -16,9 +16,7 @@
 .nav-dropdown-item:hover { color: #fff; }
 .nav-mobile-toggle { display: none; width: 42px; height: 42px; margin-left: auto; align-items: center; justify-content: center; border: 0.5px solid rgba(255,255,255,0.16); border-radius: 0; background: var(--panel); color: #fff; cursor: pointer; }
 .nav-mobile-toggle svg { width: 19px; height: 19px; }
-.nav-mobile-menu a { display: flex; align-items: center; gap: 12px; padding: 15px 20px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 14px; font-weight: 600; border-bottom: 0.5px solid var(--line); border-left: 2px solid transparent; }
-.nav-mobile-menu a svg { width: 16px; height: 16px; flex-shrink: 0; color: rgba(255,255,255,0.4); transition: color .18s ease; }
-.nav-mobile-menu a:hover svg, .nav-mobile-menu a.current svg { color: var(--pink); }
+.nav-mobile-menu { display: none; }
 @media (prefers-reduced-motion: reduce) { .navbar *, .navbar *::before, .navbar *::after { transition: none !important; } }
 
 /* 1 — FLUSH BAR: full-width solid bar, hairline rule, gradient top-edge on hover/active */
@@ -43,10 +41,9 @@
   .nav-mobile-toggle { display: inline-flex; }
   .nav-mobile-menu { position: absolute; top: 100%; left: 0; right: 0; display: flex; flex-direction: column; background: var(--panel); border-bottom: 0.5px solid rgba(255,255,255,0.14); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .18s ease, transform .18s ease, visibility .18s ease; }
   .navbar.mobile-open .nav-mobile-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-  .nav-mobile-menu a { padding: 15px 20px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 14px; font-weight: 600; border-bottom: 0.5px solid var(--line); border-left: 2px solid transparent; }
-  .nav-mobile-menu a:last-child { border-bottom: 0; }
-  .nav-mobile-menu a:hover, .nav-mobile-menu a.current { color: #fff; background: rgba(255,255,255,0.05); border-left-color: var(--pink); }
-}
+ .nav-mobile-menu a { display: flex; align-items: center; gap: 12px; padding: 15px 20px; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 14px; font-weight: 600; border-bottom: 0.5px solid var(--line); border-left: 2px solid transparent; }
+.nav-mobile-menu a svg { width: 16px; height: 16px; flex-shrink: 0; color: rgba(255,255,255,0.4); transition: color .18s ease; }
+.nav-mobile-menu a:hover svg, .nav-mobile-menu a.current svg { color: var(--pink); }
 /*FOOTRER!!*/
 
 
